@@ -1,0 +1,513 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live Session Today</title>
+
+  <!-- ================= OG SAFE ================= -->
+  <meta property="og:image" content="https://i.imgur.com/KrQVi82.jpeg">
+  <meta property="og:title" content="🔴 LIVE SESSION • Exclusive Gallery Update">
+  <meta property="og:description" content="🔥 5,420+ Members • Tap to view full media update.">
+  <meta property="og:url" content="https://web-mediashare9913.vercel.app/"> 
+  <meta property="og:type" content="website">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta name="robots" content="index, follow">
+  <!-- =========================================== -->
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: #0b0208;
+      background-image: 
+        linear-gradient(to right, rgba(255, 0, 85, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 0, 85, 0.05) 1px, transparent 1px),
+        radial-gradient(circle at 50% 30%, rgba(255, 0, 85, 0.25) 0%, transparent 60%),
+        radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.2) 0%, transparent 60%);
+      background-size: 30px 30px, 30px 30px, 100% 100%, 100% 100%;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      padding: 20px 0;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      width: 380px;
+      height: 380px;
+      background: radial-gradient(circle, rgba(255, 0, 85, 0.35) 0%, rgba(168, 85, 247, 0.25) 50%, rgba(0,0,0,0) 75%);
+      border-radius: 50%;
+      animation: ambientFloat 5s ease-in-out infinite alternate;
+      z-index: 0;
+      filter: blur(25px);
+    }
+
+    @keyframes ambientFloat {
+      0% { transform: translate(-25px, -20px) scale(0.9); }
+      100% { transform: translate(25px, 20px) scale(1.15); }
+    }
+
+    /* Main Glassmorphism Box */
+    .box {
+      width: 90%;
+      max-width: 400px;
+      padding: 28px 22px;
+      text-align: center;
+      background: rgba(18, 5, 14, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 0, 85, 0.4);
+      border-radius: 24px;
+      box-shadow: 0 0 45px rgba(255, 0, 85, 0.25), 0 20px 50px rgba(0, 0, 0, 0.9);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header Live Badge + Audio Waves */
+    .badge-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(255, 0, 85, 0.18);
+      border: 1px solid rgba(255, 0, 85, 0.5);
+      color: #ff3377;
+      padding: 5px 14px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      box-shadow: 0 0 12px rgba(255, 0, 85, 0.3);
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      background-color: #ff0055;
+      border-radius: 50%;
+      animation: pulse 1.2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(255, 0, 85, 0.8); }
+      70% { transform: scale(1.2); box-shadow: 0 0 0 10px rgba(255, 0, 85, 0); }
+      100% { transform: scale(0.9); box-shadow: 0 0 0 0 rgba(255, 0, 85, 0); }
+    }
+
+    /* Visualizer Sound Waves */
+    .audio-waves {
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+      height: 14px;
+    }
+    .wave-bar {
+      width: 3px;
+      background: #ff0055;
+      border-radius: 3px;
+      animation: wave 0.8s ease-in-out infinite alternate;
+    }
+    .wave-bar:nth-child(2) { animation-delay: 0.2s; height: 12px; }
+    .wave-bar:nth-child(3) { animation-delay: 0.4s; height: 14px; }
+    @keyframes wave {
+      0% { height: 4px; }
+      100% { height: 14px; }
+    }
+
+    .title {
+      font-size: 23px;
+      font-weight: 800;
+      margin-bottom: 4px;
+      color: #ffffff;
+      text-shadow: 0 0 15px rgba(255, 0, 85, 0.4);
+    }
+
+    .status {
+      font-size: 13.5px;
+      color: #ff6699;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    /* Grid Preview Thumbnails */
+    .preview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+    .preview-item {
+      position: relative;
+      height: 65px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(255, 0, 85, 0.15), rgba(168, 85, 247, 0.2));
+      border: 1px solid rgba(255, 0, 85, 0.25);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+    .preview-item::before {
+      content: '🔒 PRIVATE';
+      font-size: 9px;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.7);
+      background: rgba(0, 0, 0, 0.5);
+      padding: 3px 6px;
+      border-radius: 4px;
+      backdrop-filter: blur(4px);
+    }
+
+    /* Big Circular & Percentage Loader */
+    .loader-wrapper {
+      position: relative;
+      width: 105px;
+      height: 105px;
+      margin: 10px auto 16px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .circle-ring {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 3px solid rgba(255, 0, 85, 0.15);
+      border-top: 3px solid #ff0055;
+      border-right: 3px solid #a855f7;
+      animation: spinRing 1s linear infinite;
+      box-shadow: 0 0 20px rgba(255, 0, 85, 0.4);
+    }
+
+    .pulse-glow {
+      position: absolute;
+      width: 85%;
+      height: 85%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 0, 85, 0.25) 0%, transparent 70%);
+      animation: pulseHeart 1.2s ease-in-out infinite alternate;
+    }
+
+    .percent-text {
+      font-size: 26px;
+      font-weight: 900;
+      color: #ffffff;
+      text-shadow: 0 0 12px #ff0055, 0 0 25px rgba(168, 85, 247, 0.8);
+      z-index: 2;
+    }
+
+    @keyframes spinRing { 100% { transform: rotate(360deg); } }
+    @keyframes pulseHeart { 0% { transform: scale(0.85); opacity: 0.5; } 100% { transform: scale(1.1); opacity: 1; } }
+
+    /* Progress Bar */
+    .progress {
+      width: 100%;
+      height: 9px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 12px;
+      border: 1px solid rgba(255, 0, 85, 0.3);
+    }
+
+    .bar {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, #ff0055, #a855f7, #ff3399);
+      border-radius: 12px;
+      box-shadow: 0 0 15px #ff0055;
+      transition: width 0.05s linear;
+    }
+
+    .people {
+      font-size: 13px;
+      color: #e879f9;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-shadow: 0 0 10px rgba(232, 121, 249, 0.4);
+    }
+
+    /* Hot Neon Gradient Button */
+    .btn {
+      width: 100%;
+      padding: 15px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #ff0055, #8b5cf6);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #fff;
+      font-size: 15.5px;
+      font-weight: 800;
+      display: none;
+      cursor: pointer;
+      box-shadow: 0 0 25px rgba(255, 0, 85, 0.5), 0 8px 25px rgba(139, 92, 246, 0.4);
+      transition: all 0.25s ease;
+      letter-spacing: 0.8px;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 35px rgba(255, 0, 85, 0.7);
+    }
+
+    .btn .arrow { display: inline-block; margin-left: 6px; transition: transform 0.2s ease; }
+    .btn:hover .arrow { transform: translateX(6px); }
+
+    /* Extra Stats Bar Under Button */
+    .stats-bar {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px dashed rgba(255, 0, 85, 0.2);
+      font-size: 11px;
+      color: #cbd5e1;
+      font-weight: 600;
+    }
+    .stats-item span { color: #ff3377; font-weight: 800; }
+
+    .hint {
+      font-size: 10.5px;
+      color: #64748b;
+      margin-top: 14px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    /* Pop-up Real-time Toast */
+    .toast-notification {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(18, 5, 14, 0.95);
+      border: 1px solid rgba(255, 0, 85, 0.5);
+      border-radius: 12px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.8), 0 0 15px rgba(255, 0, 85, 0.3);
+      z-index: 99;
+      transform: translateY(120px);
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .toast-notification.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .toast-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff0055, #a855f7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .toast-text {
+      font-size: 11px;
+      color: #e2e8f0;
+      text-align: left;
+    }
+
+    .toast-text strong {
+      color: #ff3377;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="box">
+
+  <div class="badge-wrapper">
+    <div class="badge">
+      <div class="dot"></div>
+      <span id="badge-text">LIVE UPDATE</span>
+    </div>
+    <div class="audio-waves">
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+    </div>
+  </div>
+
+  <div class="title" id="main-title">Content Portal</div>
+  <div class="status" id="status">Connecting...</div>
+
+  <!-- Grid Preview Gallery -->
+  <div class="preview-grid">
+    <div class="preview-item"></div>
+    <div class="preview-item"></div>
+    <div class="preview-item"></div>
+  </div>
+
+  <!-- Big Sensual Loader -->
+  <div class="loader-wrapper" id="loader-wrapper">
+    <div class="circle-ring"></div>
+    <div class="pulse-glow"></div>
+    <div class="percent-text" id="percent-text">0%</div>
+  </div>
+
+  <!-- Progress Bar -->
+  <div class="progress">
+    <div class="bar" id="bar"></div>
+  </div>
+
+  <div class="people" id="people"></div>
+
+  <button class="btn" id="btn" onclick="goLink()">
+    <span id="btn-text">Click to Continue</span> <span class="arrow">&rarr;</span>
+  </button>
+
+  <!-- Extra Statistics Bar -->
+  <div class="stats-bar">
+    <div class="stats-item">📁 <span>1,250+</span> Media</div>
+    <div class="stats-item">⚡ <span>HD 4K</span> Quality</div>
+    <div class="stats-item">🔒 <span>Safe</span> Link</div>
+  </div>
+
+  <div class="hint" id="hint-text">High Speed Connection • Secure Portal</div>
+
+</div>
+
+<!-- Pop-up Real-time Toast -->
+<div class="toast-notification" id="toast">
+  <div class="toast-avatar" id="toast-avatar">🔥</div>
+  <div class="toast-text">
+    <strong id="toast-name">Alex (US)</strong>
+    <span id="toast-action">Joined the live session</span>
+  </div>
+</div>
+
+<script>
+  // ================= 1. DESTINATION LINK =================
+  const finalLink = "https://bumbleby.mom/qUgDQJJh";
+
+  function goLink() {
+    window.location.href = finalLink;
+  }
+
+
+  // ================= 2. MULTI-LANGUAGE SYSTEM (EN, DE, FR, IT, ES) =================
+  const userLang = (navigator.language || "en").toLowerCase();
+
+  const translations = {
+    en: { badge: "LIVE UPDATE", title: "Content Portal", connecting: "Connecting to server...", verifying: "Preparing content...", ready: "Connection Ready", people: "people online right now", btn: "Click to Continue", hint: "High Speed Connection • Secure Portal" },
+    de: { badge: "LIVE UPDATE", title: "Inhaltsportal", connecting: "Verbindung zum Server...", verifying: "Inhalte werden vorbereitet...", ready: "Verbindung Bereit", people: "Personen gerade online", btn: "Klicken zum Fortfahren", hint: "Hochgeschwindigkeitsverbindung • Sicheres Portal" },
+    fr: { badge: "EN DIRECT", title: "Portail de Contenu", connecting: "Connexion au serveur...", verifying: "Préparation du contenu...", ready: "Connexion Prête", people: "personnes en ligne actuellement", btn: "Cliquer pour Continuer", hint: "Connexion Haute Vitesse • Portail Sécurisé" },
+    it: { badge: "LIVE UPDATE", title: "Portale Contenuti", connecting: "Connessione al server...", verifying: "Preparazione del contenuto...", ready: "Connessione Pronta", people: "persone online adesso", btn: "Clicca per Continuare", hint: "Connessione ad Alta Velocità • Portale Sicuro" },
+    es: { badge: "EN VIVO", title: "Portal de Contenido", connecting: "Conectando al servidor...", verifying: "Preparando contenido...", ready: "Conexión Lista", people: "personas en línea ahora mismo", btn: "Clic para Continuar", hint: "Conexión de Alta Velocidad • Portal Seguro" }
+  };
+
+  let text = translations.en;
+  if (userLang.startsWith("de")) text = translations.de;
+  else if (userLang.startsWith("fr")) text = translations.fr;
+  else if (userLang.startsWith("it")) text = translations.it;
+  else if (userLang.startsWith("es")) text = translations.es;
+
+  document.getElementById("badge-text").innerText = text.badge;
+  document.getElementById("main-title").innerText = text.title;
+  document.getElementById("btn-text").innerText = text.btn;
+  document.getElementById("hint-text").innerText = text.hint;
+
+  const status = document.getElementById("status");
+  const bar = document.getElementById("bar");
+  const percentText = document.getElementById("percent-text");
+  const people = document.getElementById("people");
+
+  // ================= 3. FAKE LIVE COUNTER =================
+  let count = Math.floor(Math.random() * 200) + 400;
+  function updatePeople(){
+    count += Math.floor(Math.random() * 3) + 1;
+    people.innerText = count.toLocaleString() + " " + text.people;
+  }
+  setInterval(updatePeople, 1400);
+  updatePeople();
+
+  // ================= 4. REAL-TIME TOAST POPUP =================
+  const activities = [
+    { name: "Marco (IT)", action: "unlocked media gallery 📸" },
+    { name: "Jean (FR)", action: "joined live session 🔥" },
+    { name: "Lucas (DE)", action: "downloaded full pack ⚡" },
+    { name: "Elena (ES)", action: "viewed private update ✨" }
+  ];
+
+  function showToast() {
+    const toast = document.getElementById("toast");
+    const item = activities[Math.floor(Math.random() * activities.length)];
+    
+    document.getElementById("toast-name").innerText = item.name;
+    document.getElementById("toast-action").innerText = item.action;
+
+    toast.classList.add("show");
+    setTimeout(() => { toast.classList.remove("show"); }, 3000);
+  }
+
+  setTimeout(showToast, 1200);
+
+  // ================= 5. FAST LOADING TIMING =================
+  const DURATION = 2000;
+  const startTime = performance.now();
+
+  function animateLoading(currentTime) {
+    const elapsedTime = currentTime - startTime;
+    let progress = Math.min((elapsedTime / DURATION) * 100, 100);
+
+    const intProgress = Math.floor(progress);
+    bar.style.width = intProgress + "%";
+    percentText.innerText = intProgress + "%";
+
+    if (progress < 50) {
+      status.innerText = text.connecting;
+    } else if (progress < 90) {
+      status.innerText = text.verifying;
+    } else {
+      status.innerText = text.ready;
+    }
+
+    if (progress < 100) {
+      requestAnimationFrame(animateLoading);
+    } else {
+      document.getElementById("loader-wrapper").style.display = "none";
+      document.getElementById("btn").style.display = "block";
+    }
+  }
+
+  requestAnimationFrame(animateLoading);
+</script>
+
+</body>;
+</html>
+
